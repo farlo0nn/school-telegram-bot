@@ -1,5 +1,5 @@
-from db.db import session
-from db.models import Lesson
+from school_bot.db import session
+from school_bot.db.models import Lesson
 
 __backslash_n = '\n'
 

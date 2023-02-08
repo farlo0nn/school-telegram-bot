@@ -1,9 +1,9 @@
-from db.models import createModels
+from school_bot.db.models import createModels
 from threading import Thread
-from services.bot.bot import bot
-from services.bot.handlers import *
-from services.lessonsSchedule.scheduleChecker import weekly_schedule_sending
-from admin import app 
+from school_bot.services.bot import bot
+from school_bot.services.bot.handlers import *
+from school_bot.services.lessonsSchedule.scheduleChecker import weekly_schedule_sending
+from school_bot.admin import app 
 
 def main():
     

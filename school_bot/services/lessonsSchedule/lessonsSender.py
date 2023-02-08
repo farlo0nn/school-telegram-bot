@@ -1,12 +1,9 @@
-import json
-
-from loguru import logger
-from services.bot.bot import bot
-from db.db import session
-from db.models import User, Lesson
+from school_bot.logger import logger
+from school_bot.services.bot import bot 
+from school_bot.db import session
+from school_bot.db.models import User, Lesson
 from sqlalchemy.orm.query import Query
-from logger.logger import logger
-from settings import SAD_STICKER_ID
+from school_bot.config import SAD_STICKER_ID
 
 
 class LessonsSender:

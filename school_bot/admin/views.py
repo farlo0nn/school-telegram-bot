@@ -4,11 +4,11 @@ from .forms import \
     LessonDeleteForm, LessonOptionsEditForm, LessonAddForm, \
     UserEditOptionsForm, UserAddForm, ModelEditOptionsForm, \
     UserDeleteForm, LessonEditForm, LessonChooseForm
-from db.db import session
-from db.models import User, Lesson
-from db.utils import addUser
-from services.bot.utils import getUserInfoByChatId
-from logger.logger import logger
+from school_bot.db import session
+from school_bot.db.models import User, Lesson
+from school_bot.db.utils import addUser
+from school_bot.services.bot.utils import getUserInfoByChatId
+from school_bot.logger import logger
 
 @app.route('/', methods=['POST','GET'])
 def home():

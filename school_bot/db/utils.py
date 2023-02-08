@@ -1,6 +1,6 @@
 from .models import User, Lesson
-from .db import session
-from logger.logger import logger
+from school_bot.db import session
+from school_bot.logger import logger
 
 def addUser(userInfo) -> User:
     user = User(

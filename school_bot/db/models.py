@@ -1,5 +1,5 @@
 from sqlalchemy import Column, Integer, String, Boolean
-from .db import base, engine 
+from school_bot.db import base, engine 
 
 class User(base):
     __tablename__ = 'user'
