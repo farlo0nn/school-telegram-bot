@@ -1,9 +1,9 @@
-from .bot import bot 
-from db.db import session
-from db.models import Lesson
-from .utils import changeMessaging, getUserMessagingAndGroupInfo, \
+from school_bot.services.bot import bot 
+from school_bot.db import session
+from school_bot.db.models import Lesson
+from school_bot.services.bot.utils import changeMessaging, getUserMessagingAndGroupInfo, \
     gen_markup,start, unidentifiedMessage, changeGroup, sendLessonInformation
-from services.bot.botMessages import LESSONS_MESSAGE, RINGS_MESSAGE, HELP_MESSAGE
+from school_bot.services.bot.botMessages import LESSONS_MESSAGE, RINGS_MESSAGE, HELP_MESSAGE
 
 @bot.message_handler(content_types=["text"],commands=["start"])
 def startHandler(message):

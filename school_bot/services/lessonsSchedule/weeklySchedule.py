@@ -1,5 +1,5 @@
 import schedule
-from .lessonsSender import LessonsSender
+from school_bot.services.lessonsSchedule.lessonsSender import LessonsSender
 
 class WeeklySchedule():
 

@@ -1,9 +1,9 @@
 from telebot import types
-from db.models import User, Lesson
-from db.db import session
-from db.utils import addUser
-from logger.logger import logger
-from .bot import bot
+from school_bot.db.models import User, Lesson
+from school_bot.db import session
+from school_bot.db.utils import addUser
+from school_bot.logger import logger
+from school_bot.services.bot import bot
 
 
 def getUserInfoByChatId(id) -> types.ChatMemberMember:

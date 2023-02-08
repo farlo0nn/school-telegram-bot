@@ -3,7 +3,7 @@ import schedule
 
 from threading import Thread
 from time import sleep
-from .weeklySchedule import WeeklySchedule
+from school_bot.services.lessonsSchedule.weeklySchedule import WeeklySchedule
 
 def weekly_schedule_sending(testMode=None):
     weekly_schedule = WeeklySchedule(testMode=testMode)
