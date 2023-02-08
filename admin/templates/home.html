@@ -1,0 +1,82 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<div id="mySidenav" class="sidenav" sidenav>
+    <a href="javascript:void(0)" class="closebtn" id="closeNav" onclick="closeNav()">&times;</a>
+    <div class="track-info">
+        <br>
+    </div>
+</div>
+
+    <h1>User</h1>
+    <div>
+        <form class="form" method="post" enctype="multipart/form-data">
+            {{ userEditOptionsForm.hidden_tag() }}
+            {{ userEditOptionsForm.user_operation() }}
+            {{ userEditOptionsForm.submit() }}
+        </form>
+    </div>
+
+    {% if userEditOptionsForm.user_operation.data == 'Add' %}
+        <h2>Add User</h2>
+        <div>
+            <form class="form" method="post" enctype="multipart/form-data">
+                {{ userAddForm.hidden_tag() }}
+                {{ userAddForm.chat_id() }}
+                {{ userAddForm.submit() }}
+            </form>
+        </div>
+    {% elif userEditOptionsForm.user_operation.data == 'Delete' %}
+        <h2>Delete User</h2>
+        <div>
+            <form class="form" method="post" enctype="multipart/form-data">
+                {{ userDeleteForm.hidden_tag() }}
+                {{ userDeleteForm.username() }}
+                {{ userDeleteForm.submit() }}
+            </form>
+        </div>
+    {% endif %}
+
+    <hr>
+
+
+    <h1>Lesson</h1>
+    <div>
+        <form class="form" method="post" enctype="multipart/form-data">
+            {{ lessonOptionsEditForm.hidden_tag() }}
+            {{ lessonOptionsEditForm.lesson_operation() }}
+            {{ lessonOptionsEditForm.submit() }}
+        </form>
+    </div>
+    {% if lessonOptionsEditForm.lesson_operation.data == 'Add' %}
+        <h2>Edit Lesson</h2>
+        <form class="form" name="addLesson" id="addLesson" method="post" enctype="multipart/form-data">
+            {{ lessonAddForm.hidden_tag() }}<br>
+            {{ lessonAddForm.name(placeholder='Name') }}<br>
+            {{ lessonAddForm.link(placeholder='Meeting Link') }}<br>
+            {{ lessonAddForm.meeting_id(placeholder='Meeting Identification Code') }}<br>
+            {{ lessonAddForm.password(placeholder='Meeting Password') }}<br>
+            {{ lessonAddForm.teacher(placeholder='teacher') }}<br>
+            {{ lessonAddForm.submit() }}<br>
+        </form>    
+    {% elif lessonOptionsEditForm.lesson_operation.data == 'Delete' %}
+        <form class="form" name="deleteLesson" id="deleteLesson" method="post" enctype="multipart/form-data"></form>
+            {{ lessonDeleteForm.hidden_tag() }}
+            {{ lessonDeleteForm.name() }}
+            {{ lessonDeleteForm.submit() }}
+        </form>
+    {% elif lessonOptionsEditForm.lesson_operation.data!=None and lessonOptionsEditForm.lesson_operation.data.find('Edit') != -1 %}
+        <h2>Edit Lesson "{{ lessonToEdit.name }}"</h2>
+        <form class="form" name="addLesson" id="addLesson" method="post" enctype="multipart/form-data">
+            {{ lessonEditForm.hidden_tag() }}<br>
+            {{ lessonEditForm.original_name(placeholder='Name', class='invisible-block', value=lessonToEdit.name) }}<br>
+            {{ lessonEditForm.changed_name(placeholder='Name', value=lessonToEdit.name) }}<br>
+            {{ lessonEditForm.link(placeholder='Meeting Link', value=lessonToEdit.link) }}<br>
+            {{ lessonEditForm.meeting_id(placeholder='Meeting Identification Code', value=lessonToEdit.meeting_id) }}<br>
+            {{ lessonEditForm.password(placeholder='Meeting Password', value=lessonToEdit.password) }}<br>
+            {{ lessonEditForm.teacher(placeholder='teacher', value=lessonToEdit.teacher) }}<br>
+            {{ lessonEditForm.submit() }}<br>
+        </form>
+    {% endif %}
+  
+{% endblock content %}
